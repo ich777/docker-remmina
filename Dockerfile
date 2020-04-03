@@ -7,8 +7,8 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR=/remmina
-ENV CUSTOM_RES_W=800
-ENV CUSTOM_RES_H=600
+ENV CUSTOM_RES_W=1024
+ENV CUSTOM_RES_H=768
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
