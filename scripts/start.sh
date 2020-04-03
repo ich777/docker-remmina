@@ -17,5 +17,11 @@ fi
 
 echo "---Starting...---"
 chown -R ${UID}:${GID} /opt/scripts
+dbus-uuidgen > /var/lib/dbus/machine-id
+if [ ! -d /var/run/dbus ]; then
+	mkdir -p /var/run/dbus
+fi
+chown -R ${UID}:${GID} /var/run/dbus/
+chmod -R 770 /var/run/dbus/
 chown -R ${UID}:${GID} ${DATA_DIR}
 su ${USER} -c "/opt/scripts/start-server.sh"
