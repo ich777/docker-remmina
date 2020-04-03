@@ -1,6 +1,7 @@
 #!/bin/bash
 export XDG_CONFIG_HOME=${DATA_DIR}
 export XDG_DATA_HOME=${DATA_DIR}
+export DISPLAY=:99
 
 echo "---Preparing Server---"
 echo "---Checking for old logfiles---"
@@ -25,4 +26,4 @@ websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem 8080 localhost:5
 sleep 2
 
 echo "---Starting Remmina---"
-remmina --display=:99
+remmina
