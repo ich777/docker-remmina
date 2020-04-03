@@ -26,4 +26,4 @@ websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem 8080 localhost:5
 sleep 2
 
 echo "---Starting Remmina---"
-remmina
+remmina > /dev/null 2>&1
