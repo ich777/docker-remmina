@@ -23,5 +23,9 @@ if [ ! -d /var/run/dbus ]; then
 fi
 chown -R ${UID}:${GID} /var/run/dbus/
 chmod -R 770 /var/run/dbus/
+echo "---dbus cleanup---"
+if [ -d ${DATA_DIR}/.dbus/session-bus ]; then
+	rm -R ${DATA_DIR}/.dbus/session-bus/*
+fi
 chown -R ${UID}:${GID} ${DATA_DIR}
 su ${USER} -c "/opt/scripts/start-server.sh"
