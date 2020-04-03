@@ -4,7 +4,9 @@ LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends remmina remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice dbus-x11 && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* && \
+	sed -i '/    document.title =/c\    document.title = "Remmina - noVNC";' /usr/share/novnc/app/ui.js && \
+	rm /usr/share/novnc/app/images/icons/*
 
 ENV DATA_DIR=/remmina
 ENV CUSTOM_RES_W=1024
@@ -21,6 +23,7 @@ RUN mkdir $DATA_DIR && \
 	ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
+COPY /icons/* /usr/share/novnc/app/images/icons/
 RUN chmod -R 770 /opt/scripts/
 
 EXPOSE 8080
