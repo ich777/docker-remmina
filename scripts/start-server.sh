@@ -1,6 +1,6 @@
 #!/bin/bash
 export XDG_CONFIG_HOME=${DATA_DIR}
-export $XDG_DATA_HOME=${DATA_DIR}
+export XDG_DATA_HOME=${DATA_DIR}
 export DISPLAY=:99
 
 echo "---Preparing Server---"
