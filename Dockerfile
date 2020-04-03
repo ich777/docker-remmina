@@ -21,7 +21,7 @@ RUN mkdir $DATA_DIR && \
 	ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
-RUN chmod -R 770 /opt/scripts/ && \
+RUN chmod -R 770 /opt/scripts/
 
 EXPOSE 8080
 
