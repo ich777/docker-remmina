@@ -24,9 +24,6 @@ sleep 2
 echo "---Starting noVNC server---"
 websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem ${NOVNC_PORT} localhost:${RFB_PORT}
 sleep 2
-echo "---Starting ssh daemon---"
-/usr/sbin/sshd
-sleep 2
 
 echo "---Starting Remmina---"
 remmina > /dev/null 2>&1
