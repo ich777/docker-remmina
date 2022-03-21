@@ -11,9 +11,10 @@ RUN apt-get update && \
 ENV DATA_DIR=/remmina
 ENV CUSTOM_RES_W=1024
 ENV CUSTOM_RES_H=768
+ENV CUSTOM_DEPTH=16
 ENV NOVNC_PORT=8080
 ENV RFB_PORT=5900
-ENV X11VNC_PARAMS=""
+ENV TURBOVNC_PARAMS="-securitytypes none"
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
@@ -27,6 +28,7 @@ RUN mkdir $DATA_DIR && \
 
 ADD /scripts/ /opt/scripts/
 COPY /icons/* /usr/share/novnc/app/images/icons/
+COPY /conf/ /etc/.fluxbox/
 RUN chmod -R 770 /opt/scripts/
 
 EXPOSE 8080
