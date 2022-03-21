@@ -19,7 +19,7 @@ echo "---Checking configuration for noVNC---"
 novnccheck
 
 echo "---Starting...---"
-chown -R ${UID}:${GID} /opt/scripts
+chown -R root:${GID} /opt/scripts
 dbus-uuidgen > /var/lib/dbus/machine-id
 if [ ! -d /var/run/dbus ]; then
 	mkdir -p /var/run/dbus
@@ -30,6 +30,7 @@ echo "---dbus cleanup---"
 if [ -d ${DATA_DIR}/.dbus/session-bus ]; then
 	rm -R ${DATA_DIR}/.dbus/session-bus/*
 fi
+chmod -R 750 /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
 
 term_handler() {
